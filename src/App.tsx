@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Counter from './components/Counter';
+import CountView from './components/CountView';
+import IncrementButton from './components/IncrementButton';
+import DecrementButton from './components/DecrementButton';
+import StepHandler from './components/StepHandler';
+import { ICounter } from './interfaces/counter';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const counter: ICounter = new Counter();
+
+const App: React.FC = () => {
+  return <>
+    <div>App was loaded...</div>
+    <CountView counter={counter}/>
+    <IncrementButton counter={counter}/>
+    <DecrementButton counter={counter}/>
+    <StepHandler counter={counter}/>
+  </>;
+};
 
 export default App;
