@@ -1,9 +1,9 @@
 export interface ICounter {
   count: number,
   step: number,
-  increaseCount: Function,
-  decreaseCount: Function,
-  setStep: Function,
+  increaseCount(): void,
+  decreaseCount(): void,
+  setStep(step: number): void,
 }
 
 export interface ICounterFields {

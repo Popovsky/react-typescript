@@ -1,7 +1,8 @@
 import React from 'react';
 import {makeAutoObservable} from 'mobx';
+import {ICounter} from "../interfaces/counter";
 
-class Counter {
+class Counter implements ICounter {
   count: number = 0;
   step: number = 1;
 
@@ -18,7 +19,7 @@ class Counter {
   };
 
   setStep = (step: number) => {
-    this.step = +step;
+    this.step = step;
   }
 }
 

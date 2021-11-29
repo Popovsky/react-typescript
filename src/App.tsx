@@ -5,6 +5,7 @@ import IncrementButton from './components/IncrementButton';
 import DecrementButton from './components/DecrementButton';
 import StepHandler from './components/StepHandler';
 import { ICounter } from './interfaces/counter';
+import Form from "./components/Form";
 
 const counter: ICounter = new Counter();
 
@@ -15,6 +16,7 @@ const App: React.FC = () => {
     <IncrementButton counter={counter}/>
     <DecrementButton counter={counter}/>
     <StepHandler counter={counter}/>
+    <Form/>
   </>;
 };
 
