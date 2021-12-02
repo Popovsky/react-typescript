@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Counter from './components/Counter';
 import CountView from './components/CountView';
 import IncrementButton from './components/IncrementButton';
@@ -7,13 +7,14 @@ import StepHandler from './components/StepHandler';
 import { ICounter } from './interfaces/counter';
 import Form from "./components/Form";
 import {Link, Route, BrowserRouter as Router, Routes} from 'react-router-dom';
-import {Box, Tab, Tabs} from "@mui/material";
+import {Box, List, Tab, Tabs} from "@mui/material";
 import CenterWrapper from "./components/CenterWrapper";
+import Task from "./components/Task";
 
 const counter: ICounter = new Counter();
 
 const App: React.FC = () => {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -27,6 +28,7 @@ const App: React.FC = () => {
             <Tab component={Link} to={'/'} label="Home" />
             <Tab component={Link} to={'/counter'} label="Counter" />
             <Tab component={Link} to={'/form'} label="Form" />
+            <Tab component={Link} to={'/tasks'} label="Tasks" />
           </Tabs>
         </Box>
         <Routes>
@@ -43,6 +45,14 @@ const App: React.FC = () => {
               <Form/>
             </CenterWrapper>
           } />
+          <Route path="/tasks" element={
+            <CenterWrapper>
+              <Form/>
+              <List>
+                <Task content={' voluptatum.'}/>
+                <Task content={'sint voluptatum.'}/>
+              </List>
+            </CenterWrapper>} />
           <Route path="/" element={
             <CenterWrapper>
               <div>App was loaded...</div>

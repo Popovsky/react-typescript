@@ -7,7 +7,7 @@ const CenterWrapper: React.FC = ({children}) => {
             justifyContent: "center",
             alignItems: "center",
             height: "50vh"
-        }} >{children}</div>
+        }} ><div>{children}</div></div>
     );
 };
 

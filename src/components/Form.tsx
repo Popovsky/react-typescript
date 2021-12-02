@@ -4,17 +4,18 @@ import {Button, TextField} from "@mui/material";
 import {IForm} from "../interfaces/form";
 
 const Form: React.FC = () => {
-    const {register, handleSubmit} = useForm<IForm>();
+    const {register, handleSubmit, reset} = useForm<IForm>();
     const onSubmit: SubmitHandler<IForm> = (data: object) => {
         console.log(data);
+        reset();
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <TextField id="standard-basic" label="First name" variant="standard" {...register('firstName')} /><br/>
-            <TextField id="standard-basic" label="Last name" variant="standard" {...register('lastName')} /><br/>
-            <TextField id="standard-basic" label="Age" variant="standard" {...register('age')} /><br/>
-            <Button style={{backgroundColor: "#4eaf36"}} variant="contained" type="submit">Submit</Button>
+        <form style={{
+            display: "flex",
+        }} onSubmit={handleSubmit(onSubmit)}>
+            <TextField style={{width: '90%'}} id="standard-basic" label="Add your task" variant="standard" {...register('task')} />
+            <Button style={{backgroundColor: "#4eaf36", width: '10%'}} variant="contained" type="submit">Add</Button>
         </form>
     );
 };

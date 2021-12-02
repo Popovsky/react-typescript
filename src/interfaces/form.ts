@@ -1,5 +1,6 @@
 export interface IForm {
-    firstName: 'string' | 'string1',
+    firstName: string,
     lastName: string,
     age: number,
+    task: string
 }
