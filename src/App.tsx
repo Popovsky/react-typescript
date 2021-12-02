@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Counter from './components/Counter';
 import CountView from './components/CountView';
 import IncrementButton from './components/IncrementButton';
@@ -9,12 +9,20 @@ import Form from "./components/Form";
 import {Link, Route, BrowserRouter as Router, Routes} from 'react-router-dom';
 import {Box, List, Tab, Tabs} from "@mui/material";
 import CenterWrapper from "./components/CenterWrapper";
-import Task from "./components/Task";
+import {Task} from "./stores/Task";
 
 const counter: ICounter = new Counter();
+const task = new Task();
 
 const App: React.FC = () => {
   const [value, setValue] = useState(0);
+
+  const {loadData} = task;
+
+  useEffect(() => {
+    loadData();
+    console.log('effect', loadData())
+  }, []);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -49,8 +57,6 @@ const App: React.FC = () => {
             <CenterWrapper>
               <Form/>
               <List>
-                <Task content={' voluptatum.'}/>
-                <Task content={'sint voluptatum.'}/>
               </List>
             </CenterWrapper>} />
           <Route path="/" element={
