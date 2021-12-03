@@ -6,9 +6,8 @@ export class Task {
     constructor() {
         makeAutoObservable(this);
     }
-    async loadData() {
+    loadData = async () => {
         const result = await getTasks();
-        console.log(result)
         runInAction(() => this.list = result.data);
     }
 }

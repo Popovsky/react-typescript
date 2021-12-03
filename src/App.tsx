@@ -21,7 +21,6 @@ const App: React.FC = () => {
 
   useEffect(() => {
     loadData();
-    console.log('effect', loadData())
   }, []);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
